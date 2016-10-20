@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Scramble</title>
+</head>
+<body>
+    <h1>A Javascript Word Scramble Game</h1>
+
+    <script>
+        "use strict";
+
+        var WORDS     = ["booger", "apple", "hackbright", "mango"];
+        var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
+
+        var playing = true;
+
+        while (playing) {
+
+            // Grab a random word from the WORDS array
+            function getRandomNumber(wordsArray) {
+            // function getRandomNumber(min, wordsArray) {
+                // min = Math.ceil(min);
+                var max = wordsArray.length;
+                // max = Math.floor(max);
+                // return Math.floor(Math.random() * (max - min)) + min;
+                return Math.floor(Math.random() * max);
+            }
+
+            // var randomIndex = getRandomNumber(0, WORDS);
+            var randomIndex = getRandomNumber(WORDS);
+                console.log(randomIndex);
+            // console.log(WORDS[randomIndex]);
+            var randomWord = WORDS[randomIndex];
+                console.log(randomWord);
+
+            // Grab the corresponding scrambled word from the SCRAMBLED array
+            var randomScrambled = SCRAMBLED[randomIndex];
+                console.log(randomScrambled);
+
+            // prompt the user to guess the original word when given the scrambled word
+            // alert("Unscramble this word: " + randomScrambled);
+
+            var guess = prompt("Unscramble the word " + randomScrambled + ". Type your answer below.");
+                console.log(guess);
+
+            guess = guess.trim().toLowerCase();
+                console.log(guess);
+
+            // If the user guesses wrong, tell them they were wrong and the right word.
+
+            if (guess !== randomWord) {
+                alert("Your guess is incorrect! The correct word is " + randomWord + ".");
+            }
+
+            // If the user guesses the correct word, congratulate them.
+            else {
+                alert("Congratulations! You got it right!");
+            }
+
+            playing = confirm("Press OK To keep playing or Cancel to quit");
+
+            // What does confirm() return? True is OK, False if exit
+
+            // What does setting the playing variable do? Keeps the loop going.
+        }
+
+        alert("goodbye!");
+    </script>
+    
+</body>
+</html>
